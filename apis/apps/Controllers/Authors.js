@@ -20,7 +20,7 @@ const AuthorController= {
           
               .then (savedAuthor=>res.send(savedAuthor).status(201))
         })
-        .catch(err => res.status(400).send({success:false,message:"Succeffullyt created"}))
+        .catch(err => res.status(400).send({success:false,message:"failed to be created"}))
     },
 
     async getAll(req, res) {
