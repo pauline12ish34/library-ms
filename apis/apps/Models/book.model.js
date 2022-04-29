@@ -7,8 +7,10 @@ var bookSchema= new mongoose.Schema({
         type: String,
         required: true,
       },
+   
     author: {
-      type: Author,
+      type: String ,
+      ref: 'Author',
       required: true,
     },
 

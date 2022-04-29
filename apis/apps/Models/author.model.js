@@ -5,7 +5,7 @@ var authorSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
-    name: {
+      author_name: {
       type: String,
       required: true,
     },

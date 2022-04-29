@@ -1,6 +1,6 @@
-const express= requie('express')
-const bookController= require ('../Controllers/books')
-var router= express.Router();
+const express= require('express')
+const BookController= require ('../Controllers/books')
+const router= express.Router();
 
 router.post("/", BookController.newBook);
 

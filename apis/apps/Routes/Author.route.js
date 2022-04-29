@@ -11,6 +11,9 @@ router.get("/", AuthorController.getAll);
 //get by id
 router.get("/byid/:id", AuthorController.getById);
 
+//put
+router.put("/:id", AuthorController.update)
+
 //delete
 router.delete("/:id", AuthorController.removeAuthor);
 

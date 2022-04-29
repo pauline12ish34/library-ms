@@ -13,6 +13,7 @@ app.get('/',(req,res)=>{
 });
 
 app.use("/api/authors", require("./apps/Routes/Author.route"))
+app.use("/api/books", require("./apps/Routes/Book.route"))
 
 
 const port=process.env.PORT || 5000;
