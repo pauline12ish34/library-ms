@@ -4,24 +4,25 @@ var router = express.Router();
 
 
 const AuthorController= {
-    async newAuthor(req,res){
-        Author.findOne({name:req.body.name}).then((auth)=>{
+  async newAuthor(req,res){
+    Author.findOne({author_name:req.body.author_name}).then((auth)=>{
 
-            if (auth) {
-                //already exists
-                res.status(200).send({ message: "Already exists" });
-                return;
-              }
-              let author= new Author();
-              
-                  author.title=req.body.title,
-                  author.author_name=req.body.author_name
-                  author.save()
+        if (auth) {
+            //already exists
+            res.status(200).send({ message: "Already exists" });
+            return;
+          }
+          let author= new Author();
           
-              .then (savedAuthor=>res.send(savedAuthor).status(201))
-        })
-        .catch(err => res.status(400).send({success:false,message:"failed to be created"}))
-    },
+              author.title=req.body.title,
+              author.author_name=req.body.author_name
+              author.save()
+      
+          .then (savedAuthor=>res.send(savedAuthor).status(201))
+    })
+    .catch(err => res.status(400).send({success:false,message:"failed to be created"}))
+},
+  
 
     async getAll(req, res) {
         const authors = await Author.find()
