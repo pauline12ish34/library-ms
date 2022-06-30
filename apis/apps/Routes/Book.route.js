@@ -5,7 +5,7 @@ const router= express.Router();
 router.post("/", BookController.newBook);
 
 //get all
-router.get("/", BookController.getAll);
+router.get("/books", BookController.getAll);
 
 //get by id
 router.get("/byid/:id", BookController.getById);

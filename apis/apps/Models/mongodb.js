@@ -8,3 +8,4 @@ async function main() {
 
   require('./author.model');
   require('./book.model');
+  require('./user.model')

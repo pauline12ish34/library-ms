@@ -56,6 +56,7 @@ app.get('/',(req,res)=>{
 
 app.use("/api/v1", require("./apps/Routes/Author.route"));
 app.use("/api/v1", require("./apps/Routes/Book.route"));
+app.use("/api/v1",require("./apps/Routes/User.route"))
 const specs=swaggerJSDoc(option);
 
 app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(specs));
