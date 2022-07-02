@@ -1,22 +1,26 @@
-const express =require('express');
+const express = require('express');
 const jwt = require('jsonwebtoken');
 
 
 module.exports = (req, res, next) => {
-  try {
-    const token = req.headers.authorization.split(' ')[1];
-    const decodedToken = jwt.verify(token, 'PAULINE_JWT_KEY');
-    const userId = decodedToken.userId;
-    if (req.body.userId && req.body.userId !== userId) {
-      throw 'Invalid user ID';
-    } else {
-      next();
+    try {
+        const token = req.headers.authorization;
+        const decodedToken = jwt.verify(token, 'PAULINE_JWT_KEY');
+        console.log("dec", decodedToken)
+        const userId = decodedToken.userId;
+        if (req.body.userId && req.body.userId !== userId) {
+            return res.status(401).send({
+                    message: "invalid token"
+                })
+                // throw 'Invalid user ID';
+        } else {
+            next();
+        }
+    } catch {
+        res.status(401).json({
+            error: new Error('Invalid request!')
+        });
     }
-  } catch {
-    res.status(401).json({
-      error: new Error('Invalid request!')
-    });
-  }
 };
 
 
@@ -33,9 +37,9 @@ module.exports = (req, res, next) => {
 //         } else {
 //            next(); 
 //         }
-    
+
 //   } catch (error) {
-    
+
 //   }
 // }
 
@@ -109,7 +113,7 @@ module.exports = (req, res, next) => {
 //         }
 
 //     } catch (error) {
-     
+
 //         res.status(401).json({
 //             error: new Error('invalid request')
 //         })

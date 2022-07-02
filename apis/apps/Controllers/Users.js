@@ -72,7 +72,7 @@ const userController = {
                 userId: user._id
             },
             'PAULINE_JWT_KEY', {
-                expiresIn: "1h"
+                expiresIn: "1w"
             }
         );
 

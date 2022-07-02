@@ -1,6 +1,6 @@
 const express = require("express");
 const AuthorController = require("../Controllers/Authors");
-const authentication= require('../middleware/auth');
+const authentication = require('../middleware/auth');
 
 const router = express.Router();
 /**
@@ -51,19 +51,19 @@ const router = express.Router();
  *              items:
  *              $ref: '#/components/schemas/Author'
  */
-router.get("/authors",authentication, AuthorController.getAll);
+router.get("/authors", authentication, AuthorController.getAll);
 
 
 //new author
-router.post("/authors",authentication, AuthorController.newAuthor);
+router.post("/authors", authentication, AuthorController.newAuthor);
 
 //get by id
-router.get("/authors/byid/:id",authentication, AuthorController.getById);
+router.get("/authors/byid/:id", authentication, AuthorController.getById);
 
 //put
-router.put("/authors/:id",authentication, AuthorController.update)
+router.put("/authors/:id", authentication, AuthorController.update)
 
 //delete
-router.delete("/authors/:id",authentication, AuthorController.removeAuthor);
+router.delete("/authors/:id", authentication, AuthorController.removeAuthor);
 
 module.exports = router;
